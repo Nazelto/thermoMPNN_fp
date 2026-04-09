@@ -1,24 +1,18 @@
-from thermompnn_fp.head import ThermoMPNNHead
-from .pipeline import build_mock_proteinmpnn_input, predict_single_mutation
-from .types import HeadConfig, MutationSpec, input_dim
+from .inference import predict_from_pdb, run_site_saturation_scan
+from .pipeline import ThermoMPNNModel, load_model, predict_mutations
+from .training import train_model
+from .types import LocalPaths, ModelConfig, MutationRecord, ProjectConfig, TrainConfig
 
-
-def main() -> None:
-    config = HeadConfig()
-    sequence_length = 50
-    all_hidden, seq_embedding = build_mock_proteinmpnn_input(sequence_length, config)
-
-    mutation = MutationSpec(mutation_position=10, wildtype="A", mutant="V")
-
-    head = ThermoMPNNHead(config)
-
-    result = predict_single_mutation(head, all_hidden, seq_embedding, mutation, config)
-
-    print("feature input dim:", input_dim(config))
-    print("aa_scores shape:", tuple(result.aa_scores.shape))
-    print(
-        "mutation:",
-        f"{result.mutation.wildtype}{result.mutation.mutation_position}{result.mutation.mutant}",
-    )
-    print("predicted ddG:", float(result.ddg))
-    print("Hello from thermompnn-fp!")
+__all__ = [
+    "LocalPaths",
+    "ModelConfig",
+    "MutationRecord",
+    "ProjectConfig",
+    "ThermoMPNNModel",
+    "TrainConfig",
+    "load_model",
+    "predict_from_pdb",
+    "predict_mutations",
+    "run_site_saturation_scan",
+    "train_model",
+]

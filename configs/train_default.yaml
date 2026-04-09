@@ -1,0 +1,34 @@
+name: thermompnn_fp_default
+
+model:
+  hidden_dims: [64, 32]
+  num_final_layers: 2
+  use_light_attention: true
+  freeze_backbone: true
+  load_pretrained: true
+  subtract_mutation: true
+  hidden_dim: 128
+  embedding_dim: 128
+  num_neighbors: 48
+  num_encoder_layers: 3
+  num_decoder_layers: 3
+  kernel_size: 9
+  attention_dropout: 0.25
+  rbf_bins: 16
+  rbf_distance_min: 0.0
+  rbf_distance_max: 20.0
+  strict_backbone_weights: false
+
+training:
+  dataset_name: megascale
+  batch_size: 1
+  num_workers: 0
+  learning_rate: 0.001
+  mpnn_learning_rate: 0.0001
+  weight_decay: 0.01
+  epochs: 100
+  device: cpu
+  validation_metric: pcc
+  checkpoint_dir: checkpoints
+  seed: 0
+  clip_grad_norm:

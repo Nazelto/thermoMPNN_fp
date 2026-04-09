@@ -1,0 +1,12 @@
+proteinmpnn_checkpoint: ThermoMPNN/vanilla_model_weights/v_48_020.pt
+thermompnn_transfer_checkpoint: ThermoMPNN/models/thermoMPNN_default.pt
+megascale_raw_csv: ThermoMPNN/data_all/training/mega_train.csv
+fireprot_raw_csv: ThermoMPNN/data_all/training/fireprot_train.csv
+megascale_curated_csv: data/megascale_curated.csv
+fireprot_curated_csv: ThermoMPNN/data_all/training/fireprot_train.csv
+structures_root: ""
+megascale_structures_root: ""
+fireprot_structures_root: ""
+splits_dir: data/splits
+mmseqs_bin: mmseqs
+output_dir: output

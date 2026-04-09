@@ -2,7 +2,7 @@
 [project]
 name = "thermompnn-fp"
 version = "0.1.0"
-description = "Add your description here"
+description = "FP-style ThermoMPNN reproduction for protein stability prediction"
 readme = "README.md"
 authors = [
     { name = "Nazelto.WSL", email = "1500465005@qq.com" }
@@ -10,14 +10,17 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "numpy>=2.4.2",
-    "pydantic>=2.12.5",
-    "pydantic-settings>=2.13.1",
+    "pandas>=2.2.3",
+    "biopython>=1.84",
+    "pyyaml>=6.0.2",
     "torch",
-    "transformers>=4.37.0",
+    "lightning>=2.5.0",
+    "torchmetrics>=1.6.0",
+    "tqdm>=4.67.1",
 ]
 
 [project.scripts]
-thermompnn-fp = "thermompnn_fp:main"
+thermompnn-fp = "thermompnn_fp.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.9.29,<0.10.0"]
